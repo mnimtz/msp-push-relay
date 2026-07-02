@@ -1,0 +1,38 @@
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+.eggs/
+*.egg
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Database (never commit real data)
+*.db
+*.sqlite
+*.sqlite3
+/data/
+
+# Environment / secrets
+.env
+.env.*
+*.p8
+
+# macOS
+.DS_Store
+
+# Docker
+.dockerignore
