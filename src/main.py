@@ -40,7 +40,7 @@ APNS_TEAM_ID: str = os.environ.get("APNS_TEAM_ID", "")
 APNS_PRIVATE_KEY: str = os.environ.get("APNS_PRIVATE_KEY", "")
 PORT: int = int(os.environ.get("PORT", "8080"))
 BUNDLE_ID: str = "de.nimtz.mysecureprint"
-DB_PATH: str = os.environ.get("DB_PATH", "/data/relay.db")
+DB_PATH: str = os.environ.get("DB_PATH", "/home/relay.db")
 
 # APNs endpoints
 APNS_PROD_HOST = "https://api.push.apple.com"
