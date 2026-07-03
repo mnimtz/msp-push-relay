@@ -98,11 +98,24 @@ docker run -p 8080:8080 \
 
 ## Deployment (Azure Web App)
 
+### 1-Click Deploy
+
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmnimtz%2Fmsp-push-relay%2Fmain%2Fazuredeploy.json)
+
+Opens the Azure portal with a pre-filled ARM template. You only need to enter:
+- **Site name** — globally unique Web App name (e.g. `msp-push-relay`)
+- **APNS Key ID** — 10-char string from Apple Developer portal
+- **APNS Team ID** — 10-char Apple Developer Team ID
+- **APNS Private Key** — full PEM content of your `.p8` file (including `-----BEGIN/END PRIVATE KEY-----`)
+
+The template creates a Linux App Service Plan (B1) + Web App for Containers pointing to `ghcr.io/mnimtz/msp-push-relay:latest`. SQLite is persisted at `/home/relay.db` (Azure's persistent home directory).
+
+### Manual Setup
+
 1. Create an Azure Web App (Linux, Docker container)
 2. Point it to `ghcr.io/mnimtz/msp-push-relay:latest`
 3. Set all env vars under **Configuration → Application settings**
-4. Mount a persistent storage volume to `/data` so the SQLite DB survives restarts
-5. GitHub Actions builds and pushes on every push to `main` — restart the Web App to pull the new image
+4. GitHub Actions builds and pushes on every push to `main` — restart the Web App to pull the new image
 
 ## Versioning
 
